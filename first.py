@@ -2,12 +2,15 @@
 First implementation of the interceptor pattern using Python
 """
 
+from functools import wraps
+
 def interceptor(func):
     """
     This is a decorator used to intercept other function calls
     """
     print("Executed During function definition")
 
+    @wraps(func)
     def wrapper(*args, **kwargs):
         print("Just before function execution")
         result = func(*args, **kwargs)
