@@ -1,3 +1,4 @@
 *.pyc
 *.txt
 scratch.py
+.vscode
