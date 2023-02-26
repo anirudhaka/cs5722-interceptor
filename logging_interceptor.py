@@ -3,6 +3,7 @@ A interceptor which maintains a log
 """
 
 from interceptor import Interceptor
+from context import Context
 import logging
 
 logging.basicConfig(
@@ -13,8 +14,12 @@ logging.basicConfig(
 
 class LoggingInterceptor(Interceptor):
 
-    def execute(self, request):
-        print("Inside the logging interceptor")
-        logging.info(f"Executing request - {request}")
+    def update(self, context: Context):
+        if context.get_customer_name().lower() == "neo":
+            logging.info("Mr. Anderson, welcome back.")
+            return
+        logging.info(
+            f"Context object created at: {context.get_creation_time()}\nmore details: {str(context)}"
+        )
 
         # request should be a class and provide an API for the conc interceptor

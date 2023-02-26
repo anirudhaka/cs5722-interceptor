@@ -2,6 +2,7 @@ from enum import Enum
 
 class PriceCode(Enum):
     """An enumeration for different kinds of movies and their behavior"""
+    # Price and Frequent renter point calculation strategy is implemented in the enum types
     new_release = { 
         "price_code": 1,
         "price": lambda days: 3.0*days, 

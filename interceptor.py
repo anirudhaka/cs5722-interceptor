@@ -1,7 +1,9 @@
 """
 The base interceptor code
 """
+from abc import ABC, abstractmethod
 
-class Interceptor:
-    def execute(self, request):
-        print("Inside the interceptor.")
+class Interceptor(ABC):
+    @abstractmethod
+    def update(self, context):
+        pass

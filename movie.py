@@ -1,4 +1,3 @@
-import logging
 from price_code import PriceCode
 
 class Movie:
