@@ -25,6 +25,12 @@ class Rental:
     def get_days_rented(self):
         return self.days_rented
     
+    def get_frequent_renter_points(self):
+        if (self.get_movie().get_price_code() == Movie.NEW_RELEASE) and (self.get_days_rented() > 1):
+            return 2
+        else:
+            return 1
+    
     def get_charge(self) -> float:
         """
         returns the charge for the rental
